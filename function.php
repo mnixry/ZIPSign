@@ -7,7 +7,7 @@ function get_bro() {
         $exp[1] = $b[1];
     } elseif (stripos($sys, "Maxthon") > 0) {
         preg_match("/Maxthon\/([\d\.]+)/", $sys, $aoyou);
-        $exp[0] = "傲游";
+        $exp[0] = "Maxthon";
         $exp[1] = $aoyou[1];
     } elseif (stripos($sys, "MSIE") > 0) {
         preg_match("/MSIE\s+([^;)]+)+/i", $sys, $ie);
@@ -41,7 +41,7 @@ function get_bro() {
         $exp[0] = "Safari";
         $exp[1] = $safari[1];
     } else {
-        $exp[0] = "未知浏览器";
+        $exp[0] = "Unknown";
         $exp[1] = "";
     }
     return $exp[0] . '(' . $exp[1] . ')';
@@ -125,7 +125,7 @@ function get_os() {
     } else if (preg_match('/offline/i', $agent)) {
         $os = 'offline';
     } else {
-        $os = '未知操作系统';
+        $os = 'Unknown OS';
     }
     //将所有下划线换做小数点,让系统版本更好看
     $os = str_replace("_", ".", $os);
